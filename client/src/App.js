@@ -21,6 +21,13 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    axios.get(`localhost:5000/login`)
+    .then(res => {
+      console.log(res.data)
+    })
+  })
+
   const handleChange = e =>{
     setSearch(e.target.value)
   }

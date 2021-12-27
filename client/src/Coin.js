@@ -1,6 +1,9 @@
+import axios from "axios";
 import React from "react";
+import {useState, useEffect} from "react";
 import './Coin.css'
 export const Coin = ({ name, image, symbol, price, volume, priceChange, marketcap }) => {
+
   return (
     <div className="coin-container">
       <div className="coin-row">
