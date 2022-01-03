@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const loginRouter = require('./routes/loginRouter');
 const pageRouter = require('./routes/pageRouter');
 const Post = require('./model/User');
+const cors = require('cors');
 
 const app = express()
 
@@ -18,6 +19,7 @@ mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFi
 
 //Middlewares
 app.use(express.json());
+app.use(cors());
 
 //Routing
 app.use('/', pageRouter);

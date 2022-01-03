@@ -3,7 +3,7 @@ const User = require('../model/User');
 exports.getIndexPage = async (req, res) => {
     try{
         const user = await User.findOne({ name: "Ilker" });
-        res.send(user);
+        res.json(user);
         console.log(user);
     } catch(error){
         res.status(400).json({

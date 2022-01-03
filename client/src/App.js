@@ -23,10 +23,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000")
+    axios.get("http://localhost:5000/")
     .then(res => {
-      setUserName(res.name);
-      console.log(res.neme);
+      setUserName(res.data.name);
+      console.log(res.data.name);
     }).catch(err => {
       console.log("Could not get profile data !");
     })
