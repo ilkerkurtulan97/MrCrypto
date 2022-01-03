@@ -10,6 +10,7 @@ import "./App.css"
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
+  const [userName, setUserName] = useState('ikoo');
 
 
   useEffect(() => {
@@ -22,9 +23,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    axios.get(`localhost:5000/login`)
+    axios.get("http://localhost:5000")
     .then(res => {
-      console.log(res.data)
+      setUserName(res.name);
+      console.log(res.neme);
+    }).catch(err => {
+      console.log("Could not get profile data !");
     })
   })
 
@@ -38,7 +42,7 @@ function App() {
 
   return (
     <div className="coin-app">
-      <Navigation />
+      <Navigation username={userName}/>
       <div className="coin-search">
         <h1 className="coin-text">Search a currency</h1>
         <form>

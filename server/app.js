@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const pageController = require('./controller/pageController');
+const loginRouter = require('./routes/loginRouter');
+const pageRouter = require('./routes/pageRouter');
 const Post = require('./model/User');
 
 const app = express()
@@ -19,9 +20,8 @@ mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFi
 app.use(express.json());
 
 //Routing
-app.get('/', pageController.getIndexPage);
-
-app.get('/login', pageController.getLoginPage);
+app.use('/', pageRouter);
+app.use('/login', loginRouter);
   
 
 //Launching the application on port 5000

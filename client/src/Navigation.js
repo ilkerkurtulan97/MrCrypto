@@ -1,8 +1,8 @@
-import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, NavbarBrand, NavbarText, NavbarToggler, Nav, Collapse, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-function Navigation() {
+function Navigation({username}) {
+
   return (
     <div>
   <Navbar
@@ -52,7 +52,7 @@ function Navigation() {
         </UncontrolledDropdown>
       </Nav>
       <NavbarText>
-        SampleUser123
+        {username}
       </NavbarText>
     </Collapse>
   </Navbar>
