@@ -1,7 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, NavbarBrand, NavbarText, NavbarToggler, Nav, Collapse, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import '../styling/Navigation.css';
 
-function Navigation({username}) {
+function Navigation({username, surname}) {
+
+  const handleProfile = () => {
+    alert("ikooo");
+  }
 
   return (
     <div>
@@ -39,21 +44,44 @@ function Navigation({username}) {
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
-              Option 1
+              Coin Alarms
             </DropdownItem>
             <DropdownItem>
-              Option 2
+              Deposit
+            </DropdownItem>
+            <DropdownItem>
+            Withdrawal
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
-              Reset
+            Coin Calendar
             </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
-      <NavbarText>
-        {username}
-      </NavbarText>
+      <UncontrolledDropdown
+          inNavbar
+          nav
+        >
+          <DropdownToggle
+            caret
+            nav
+           className="navbar-ns">
+            {`${username} ${surname}`}
+          </DropdownToggle>
+          <DropdownMenu >
+            <DropdownItem onClick={handleProfile}>
+              Profile
+            </DropdownItem>
+            <DropdownItem>
+              Messages
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>
+              Logout
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
     </Collapse>
   </Navbar>
 </div>

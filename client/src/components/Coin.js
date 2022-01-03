@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import {useState, useEffect} from "react";
-import './Coin.css'
+import '../styling/Coin.css';
 export const Coin = ({ name, image, symbol, price, volume, priceChange, marketcap }) => {
 
   return (

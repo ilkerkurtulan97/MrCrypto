@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
-import Navigation from "./Navigation"
-import Coin from "./Coin";
+import Navigation from "./components/Navigation"
+import Coin from "./components/Coin";
 import "./App.css"
 
 
@@ -10,7 +10,8 @@ import "./App.css"
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
-  const [userName, setUserName] = useState('ikoo');
+  const [userName, setUserName] = useState('Ilker');
+  const [userSurname, setUserSurname] = useState('Kurtulan');
 
 
   useEffect(() => {
@@ -26,7 +27,9 @@ function App() {
     axios.get("http://localhost:5000/")
     .then(res => {
       setUserName(res.data.name);
+      setUserSurname(res.data.surname);
       console.log(res.data.name);
+      console.log(res.data.surname);
     }).catch(err => {
       console.log("Could not get profile data !");
     })
@@ -42,7 +45,7 @@ function App() {
 
   return (
     <div className="coin-app">
-      <Navigation username={userName}/>
+      <Navigation username={userName} surname={userSurname}/>
       <div className="coin-search">
         <h1 className="coin-text">Search a currency</h1>
         <form>
