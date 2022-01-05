@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
-import Navigation from "./components/Navigation"
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Navigation from "./components/Navigation";
 import Coin from "./components/Coin";
 import "./App.css"
 
@@ -10,8 +11,8 @@ import "./App.css"
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
-  const [userName, setUserName] = useState('Ilker');
-  const [userSurname, setUserSurname] = useState('Kurtulan');
+  const [userName, setUserName] = useState('');
+  const [userSurname, setUserSurname] = useState('');
 
 
   useEffect(() => {

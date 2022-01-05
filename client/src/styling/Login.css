@@ -5,12 +5,41 @@
     text-align: center;
     margin-left: 20%;
     margin-right:20%;
-    margin-top: 100px;
-    border-radius: 25%;
-    border: 1px solid;
+    margin-top: 50px;
+    width: 800px;
+    height: 600px;
+    border: 2px solid navy;
+    border-radius: 30px;
+    padding: 100px;
 }
 
 input{
     margin-bottom: 20px;
     text-align: center;
+}
+
+.togglePasswordDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-email{
+    width: 600px;
+}
+
+.login-password{
+    width: 600px;
+}
+
+.toggleIcon{
+    margin-bottom: 100px;
+}
+
+button{
+    margin-top: 180px;
+}
+
+.register{
+    text-decoration: none;
+    color: black;
 }
