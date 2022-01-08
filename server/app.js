@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const loginRouter = require('./routes/loginRouter');
 const pageRouter = require('./routes/pageRouter');
+const authRouter = require('./routes/authRouter');
 const Post = require('./model/User');
 const cors = require('cors');
 
@@ -18,12 +18,13 @@ mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFi
 });
 
 //Middlewares
+app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(cors());
 
 //Routing
 app.use('/', pageRouter);
-app.use('/login', loginRouter);
+app.use('/auth', authRouter);
   
 
 //Launching the application on port 5000

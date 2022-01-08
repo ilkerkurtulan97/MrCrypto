@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AlterLogin />
+    <Register />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -33,6 +35,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
+    const navigate = useNavigate();
     const [iconToggle, setIconToggle] = useState(true);
   const [passwordToggle, setPasswordToggle] = useState("password");
 
@@ -44,11 +47,20 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    axios.post("localhost:5000/login", {
+        email: event.email,
+        password: event.password
+    })
+    .then(function(response){
+        console.log(response);
+        if (response.status === 200) {
+            navigate("/dashboard", { replace: true });
+        }
+    })
   };
 
   return (
