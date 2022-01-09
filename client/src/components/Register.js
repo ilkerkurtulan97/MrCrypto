@@ -15,7 +15,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "../styling/Register.css";
 import { Navigate } from "react-router-dom";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -61,21 +64,23 @@ export default function SignUp() {
     console.log(signData);
 
     if(signData.name == null || signData.name === ""){
-      alert('Name field is empty !');
+      toast.error('Name field is empty !', {position: toast.POSITION.TOP_CENTER});
     }
     else if(signData.surname == null || signData.surname === ""){
-      alert('Surname field is empty !');
+      toast.error('Surname field is empty!', {position: toast.POSITION.TOP_CENTER});
     }
     else if(signData.email == null || signData.email === ""){
-      alert('Email field is empty !');
+      toast.error('Email field is empty!', {position: toast.POSITION.TOP_CENTER});
     }
     else if(signData.password == null || signData.password === ""){
-      alert('Password field is empty !');
+      toast.error('Password is empty!', {position: toast.POSITION.TOP_CENTER});
     }
     else if(!(signData.password === passwordConfirm)){
-      alert('Passwords do not match');
+      toast.error('Passwords do not match!', {position: toast.POSITION.TOP_CENTER});
     }
-
+    else{
+      toast.success('Successful register!', {position: toast.POSITION.TOP_CENTER});
+    }
 
     axios.post(URL, {
       name: signData.name,
@@ -85,7 +90,7 @@ export default function SignUp() {
     }).then(res=>{
       console.log(res.data);
       if(res.status === 200){
-        Navigate("/auth/login", {replace: true});
+        Navigate("http://localhost:3000/login", {replace: true});
       }
     })
   };

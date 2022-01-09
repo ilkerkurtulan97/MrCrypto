@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
-import AlterLogin from "./components/AlterLogin";
+import Login from './components/Login';
+import CoinCalendar from './components/CoinCalendar';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Register />
+    < CoinCalendar/>
   </React.StrictMode>,
   document.getElementById('root')
 );
