@@ -40,8 +40,7 @@ export default function SignUp() {
     name: "",
     surname: "",
     email: "",
-    password: "",
-
+    password: ""
   })
 
   const [passwordConfirm, setPasswordConfirm] = useState('')

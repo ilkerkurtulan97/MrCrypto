@@ -29,7 +29,7 @@ app.use(cors());
 //Routing
 app.use('/', pageRouter);
 app.use('/auth', authRouter);
-  
+
 
 //Launching the application on port 5000
 const port = 5000;

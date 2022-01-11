@@ -1,26 +1,30 @@
 const User = require('../model/User');
 
-exports.createUser = async(req, res) => {
+exports.register = async(req, res) => {
     const user = await User.create(req.body);
 
     res.status(201).json({user: user});
     console.log(user);
 }
 
-exports.loginUser = async(req, res) => {
-    const user = await User.findOne({email: req.body.email});
-    if(user){
-        bcrypt.compare(req.body.password, user.password, (err, same)=>{
-            if(same){
-                res.redirect('/');
+exports.loginUser = async (req, res) => {
+    try{
+        User.findOne({email:req.body.email},function(err,user){
+            if(user){
+                if(user.password==req.body.password){
+                    res.status(200).send({"Success": "Success!"});
+                    res.redirect("localhost:3000/");
+                }else{
+                    res.status(404).send({"Failed":"Wrong password!"});
+                }
             }else{
-                res.status(400).json({"Error": "Wrong Password"});
+                res.status(404).send({"Failed":"This Email Is not regestered!"});
             }
         });
-    }else{
-        res.status(400).json({"Error": "User Not Found"})
+    } catch(err){
+        res.status(400).send({"Failed": "Wrong url or operation"});
+        res.navi
     }
-    
 }
 
 exports.login = async (req, res) =>{
