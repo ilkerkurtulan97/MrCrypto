@@ -4,8 +4,12 @@ const pageRouter = require('./routes/pageRouter');
 const authRouter = require('./routes/authRouter');
 const Post = require('./model/User');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
+//Initializing the app
 const app = express()
+
+//
 
 
 mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {

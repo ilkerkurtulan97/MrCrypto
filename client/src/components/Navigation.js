@@ -1,15 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, NavbarBrand, NavbarToggler, Nav, Collapse, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import '../styling/Navigation.css';
+import ErrorPage from "./ErrorPage";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 function Navigation({username, surname}) {
 
   const handleProfile = () => {
-    alert("ikooo");
+    return(
+      <Router>
+          <Route exact path="/profile">
+          <ErrorPage />
+        </Route>
+      </Router>
+    )
   }
 
   return (
-    <div>
+    <Router>
+      <div>
   <Navbar
     color="dark"
     dark
@@ -28,7 +37,7 @@ function Navigation({username, surname}) {
         navbar
       >
         <NavItem>
-          <NavLink href="/components/">
+          <NavLink href="/coin-news/">
             Coin News
           </NavLink>
         </NavItem>
@@ -47,10 +56,7 @@ function Navigation({username, surname}) {
               Coin Alarms
             </DropdownItem>
             <DropdownItem>
-              Deposit
-            </DropdownItem>
-            <DropdownItem>
-            Withdrawal
+            My Wallet
             </DropdownItem>
             <DropdownItem divider />
             <DropdownItem>
@@ -70,10 +76,11 @@ function Navigation({username, surname}) {
             {`${username} ${surname}`}
           </DropdownToggle>
           <DropdownMenu >
-            <DropdownItem onClick={handleProfile}>
+            <DropdownItem href="/profile">
+            
               Profile
             </DropdownItem>
-            <DropdownItem>
+            <DropdownItem href="/messages">
               Messages
             </DropdownItem>
             <DropdownItem divider />
@@ -84,7 +91,8 @@ function Navigation({username, surname}) {
         </UncontrolledDropdown>
     </Collapse>
   </Navbar>
-</div>
+      </div>
+    </Router>
   );
 }
 

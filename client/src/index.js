@@ -6,11 +6,12 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
 import CoinCalendar from './components/CoinCalendar';
+import Messages from './components/Messages';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    < CoinCalendar/>
+      < App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

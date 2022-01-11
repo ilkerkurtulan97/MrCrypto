@@ -6,8 +6,6 @@ import Coin from "./components/Coin";
 import "./App.css"
 
 
-
-
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
