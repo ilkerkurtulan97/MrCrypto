@@ -62,6 +62,10 @@ export default function Login() {
       });
   };
 
+  const handleButton = (event) => {
+    console.log("Button Clicked")
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>

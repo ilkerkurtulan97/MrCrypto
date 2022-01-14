@@ -9,7 +9,7 @@ function CoinCalendar() {
   const [userSurname, setUserSurname] = useState("");
 
   const [value, onChange] = useState(new Date());
-  const [alarms, setAlarms] = useState("x");
+  const [alarms, setAlarms] = useState(value);
 
   const addAlarm = alarm => {
     const newAlarms = [alarm, ...alarms];
@@ -30,7 +30,6 @@ function CoinCalendar() {
   const handleAlarmButton = () => {
     setAlarms(value);
     console.log(value);
-    addAlarm(value);
   }
 
   return (
@@ -45,6 +44,9 @@ function CoinCalendar() {
 
       <div className="alarmlist-div">
         <h2>Current Alarms</h2>
+        {alarms.map(function(alarm, i){
+          return <li key={i}>{alarm}</li>
+        })}
       </div>
       
     </div>

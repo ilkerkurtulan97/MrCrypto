@@ -25,13 +25,7 @@ function Profile(props) {
 
     return (
         <div>
-            <Navigation />
-            <h1>Ilker</h1>
-            <Router>
-                <Routes>
-                    <Route path="*" element={<ErrorPage />}/>
-                </Routes>
-            </Router>
+            <h1>Profile Component</h1>
         </div>
     )
 }
