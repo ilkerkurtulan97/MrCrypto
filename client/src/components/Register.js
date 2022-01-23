@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "../styling/Register.css";
-import { Navigate } from "react-router-dom";
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -89,7 +88,7 @@ export default function SignUp() {
     }).then(res=>{
       console.log(res.data);
       if(res.status === 200){
-        Navigate("http://localhost:3000/login", {replace: true});
+        console.log("Yes !");
       }
     })
   };

@@ -14,22 +14,12 @@ import {
 } from "reactstrap";
 import "../styling/Navigation.css";
 import ErrorPage from "./ErrorPage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 function Navigation({ username, surname }) {
-  const handleProfile = () => {
-    return (
-      <Router>
-        <Route exact path="/profile">
-          <ErrorPage />
-        </Route>
-      </Router>
-    );
-  };
 
   return (
-    <div>
+    <div className="App">
       <Navbar color="dark" dark expand="md" fixed="" full light>
         <NavbarBrand href="/">MyCrypto</NavbarBrand>
         <NavbarToggler onClick={function noRefCheck() {}} />
@@ -43,11 +33,12 @@ function Navigation({ username, surname }) {
                 Options
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Coin Alarms</DropdownItem>
-                <DropdownItem>My Wallet</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Coin Calendar</DropdownItem>
+                  <DropdownItem>Coin Alarms</DropdownItem>
+                  <DropdownItem>My Wallet</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Coin Calendar</DropdownItem>
               </DropdownMenu>
+             
             </UncontrolledDropdown>
           </Nav>
           <UncontrolledDropdown inNavbar nav>
@@ -56,8 +47,7 @@ function Navigation({ username, surname }) {
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem href="/profile">
-                <Link to="/profile">Profile</Link>
-                
+                Profile
               </DropdownItem>
               <DropdownItem href="/messages">Messages</DropdownItem>
               <DropdownItem divider />

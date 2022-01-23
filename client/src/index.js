@@ -7,25 +7,16 @@ import Register from './components/Register';
 import Login from './components/Login';
 import CoinCalendar from './components/CoinCalendar';
 import Messages from './components/Messages';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import Main from './components/Main';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path=":profile" element={<Profile />}>
-          <Route path=":teamId" element={<Login />} />
-          <Route path="new" element={<CoinCalendar />} />
-          <Route index element={<Messages />} />
-        </Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

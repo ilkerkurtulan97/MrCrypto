@@ -58,7 +58,10 @@ export default function Login() {
         password: event.password,
       })
       .then(function (response) {
-        console.log(response);
+        if(response.status === 200){
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+        //navigate("/profile", { replace: true });
       });
   };
 

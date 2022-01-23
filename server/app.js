@@ -4,15 +4,11 @@ const pageRouter = require('./routes/pageRouter');
 const authRouter = require('./routes/authRouter');
 const Post = require('./model/User');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
 
 //Initializing the app
 const app = express()
 
-//
-
-
-mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://iko4545:q1w2e3r4@cluster0.4cntg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -25,6 +21,8 @@ mongoose.connect('mongodb+srv://iko4545:ia45ia45@cluster0.4cntg.mongodb.net/myFi
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(cors());
+
+require('dotenv').config();
 
 //Routing
 app.use('/', pageRouter);
